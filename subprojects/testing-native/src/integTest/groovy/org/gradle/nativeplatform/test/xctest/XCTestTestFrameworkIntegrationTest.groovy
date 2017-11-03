@@ -118,7 +118,9 @@ allprojects { p ->
         }
 
         private static final String FAILING_TEST = """
+            fflush(stdout)
             fputs("some error output\\n", stderr)
+            fflush(stderr)
             XCTAssert(false, "test failure message")
         """
 
